@@ -10,7 +10,21 @@ export default class ContadorAgua extends Component {
     return (
       <View style={styles.body}>
         <ImageBackground source={require('./images/waterbg.png')} style={styles.bgimage}> 
+          <View style={styles.infoArea}>
+            <View style={styles.area}>
+              <Text style={styles.areaTitulo}>Meta</Text> 
+              <Text style={styles.areaDado}>2000ml</Text> 
+            </View>
+            <View style={styles.area}>
+              <Text style={styles.areaTitulo}>Consumido</Text> 
+              <Text style={styles.areaDado}>500ml</Text> 
+            </View>
+            <View style={styles.area}>
+              <Text style={styles.areaTitulo}>Status</Text> 
+              <Text style={styles.areaDado}>Ruim</Text> 
+            </View>
 
+          </View>
 
         </ImageBackground>
       </View>
@@ -26,6 +40,23 @@ const styles = StyleSheet.create({
   bgimage: {
     flex : 1,
     width:null
+  },
+  infoArea : {
+    flex: 1,
+    flexDirection: 'row',
+    marginTop: 70
+  },
+  area: {
+    flex: 1,
+    alignItems: 'center'
+  },
+  areaTitulo : {
+    color: '#45b2fc'
+  },
+  areaDado: {
+    color: '#2b4274',
+    fontSize: 15,
+    fontWeight: 'bold'
   }
 });
 
