@@ -28,8 +28,12 @@ export default class ContadorAgua extends Component {
 
             <View style={styles.percArea}>
               <Text style={styles.percText}>25%</Text>
-              
             </View>
+
+            <View style={styles.btnArea}>
+              <Button title="Beber 200ml" onPress={this.addCopo}/>
+            </View>
+
           </View>
         </ImageBackground>
       </View>
@@ -54,6 +58,10 @@ const styles = StyleSheet.create({
   percArea: {
     marginTop: 160,
     alignItems: 'center'
+  },
+  btnArea : {
+    marginTop : 30,
+    alignItems : 'center'
   },
   area: {
     flex: 1,
