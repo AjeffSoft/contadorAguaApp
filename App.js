@@ -4,6 +4,34 @@ import { View, Text, Image, StyleSheet, Button, ImageBackground} from 'react-nat
 
 export default class ContadorAgua extends Component {
   
+  constructor(props){
+    super(props);
+    this.state = {consumido: 0, status: 'Ruim', perc: 0};
+
+    this.addCopo = this.addCopo.bind(this);
+    this.atualizar = this.atualizar.bind(this);
+  }
+
+
+  addCopo (){
+    let s = this.state;
+    s.consumido += 200;
+    this.setState(s);
+    this.atualizar();
+
+  }
+
+  atualizar (){
+    let s = this.state;
+    s.perc = Math.floor((s.consumido/2000) * 100);
+
+    if(s.perc >= 100){
+      s.status = 'Bom';
+    }else {
+      s.status = 'Ruim';
+    }
+    this.setState(s);
+  }
 
   render(){
 
@@ -18,16 +46,16 @@ export default class ContadorAgua extends Component {
               </View>
               <View style={styles.area}>
                 <Text style={styles.areaTitulo}>Consumido</Text> 
-                <Text style={styles.areaDado}>500ml</Text> 
+                <Text style={styles.areaDado}>{this.state.consumido}ml</Text> 
               </View>
               <View style={styles.area}>
                 <Text style={styles.areaTitulo}>Status</Text> 
-                <Text style={styles.areaDado}>Ruim</Text> 
+                <Text style={styles.areaDado}>{this.state.status}</Text> 
               </View>
             </View>
 
             <View style={styles.percArea}>
-              <Text style={styles.percText}>25%</Text>
+              <Text style={styles.percText}>{this.state.perc}%</Text>
             </View>
 
             <View style={styles.btnArea}>
